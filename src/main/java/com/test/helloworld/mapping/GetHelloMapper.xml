@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.helloworld.dao.GetHelloDao" >
+	<resultMap type="com.test.helloworld.entity.HelloWorld" id="HelloMap">
+		<id column="id" property="id" jdbcType="INTEGER"/>
+		<id column="content" property="value" jdbcType="VARCHAR"/>
+	</resultMap>
+  <select id="getHello" resultType="String" parameterType="java.lang.Integer">
+  	select content
+  	from hello where
+  	id = #{id,jdbcType=INTEGER}
+  </select>
+</mapper>
