@@ -16,7 +16,7 @@ public class GetHelloServiceImpl implements GetHelloService {
 	private GetHelloDao getHelloDao;
 
 	public String getHelloByService() {
-		System.out.println("run to getHelloByServiceImpl!");
+
 		String str = "Hello World!";
 		return str;
 	}

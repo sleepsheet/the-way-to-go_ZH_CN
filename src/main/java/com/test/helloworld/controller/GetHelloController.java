@@ -1,8 +1,8 @@
 package com.test.helloworld.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,9 +14,9 @@ import com.test.helloworld.services.UserService;
 @RequestMapping("gethello")
 public class GetHelloController {
 
-	@Autowired
+	@Resource
 	private GetHelloService getHelloService;
-	@Autowired
+	@Resource
 	private UserService userService;
 
 	/**
@@ -29,11 +29,11 @@ public class GetHelloController {
 
 	@RequestMapping(value = "/gethellobyservice")
 	public String getHelloworldByService(HttpServletRequest request) {
-		//HelloWorld hello = new HelloWorld();
+		// HelloWorld hello = new HelloWorld();
 
 		String str = this.getHelloService.getHelloByService();
 
-		//hello.setValue(str);
+		// hello.setValue(str);
 		request.getSession().setAttribute("hello", str);
 
 		// 设置Session失效时间为两个小时
@@ -51,7 +51,7 @@ public class GetHelloController {
 	public String getHelloworldByMySQL(HttpServletRequest request) {
 		// String hello = null;
 		// hello = this.getHelloService.getHelloByMySql(1);
-		System.out.println("run to getHelloController!");
+
 		User user1 = new User();
 		user1 = this.userService.getUserById(2);
 
